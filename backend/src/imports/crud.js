@@ -30,4 +30,16 @@ module.exports = class CRUD {
 
         return toReturn;
     }
+
+    remove() {
+        let toReturn;
+
+        this.model.findOneAndDelete(query, options, (err, doc) => {
+            if (err) throw new Error(err);
+
+            toReturn = doc;
+        });
+
+        return toReturn;
+    }
 };

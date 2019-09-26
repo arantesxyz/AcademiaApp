@@ -15,8 +15,11 @@ mongoose.connect(
 app.use(express.json());
 
 // Routes
-const usersRoute = require("./modules/user");
-app.use("/users", usersRoute);
+const authRoute = require("./modules/auth/auth.routes");
+app.use("/auth", authRoute);
+
+const alunoRoute = require("./modules/aluno/aluno.routes");
+app.use("/alunos", alunoRoute);
 
 // Start server
 app.listen(process.env.PORT, () =>
