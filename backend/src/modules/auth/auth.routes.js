@@ -24,3 +24,5 @@ route.get("/login", (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = route;

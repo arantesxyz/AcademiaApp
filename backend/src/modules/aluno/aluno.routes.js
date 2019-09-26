@@ -2,11 +2,17 @@ const route = require("express").Router();
 const Aluno = require("./aluno");
 const { verifyToken } = require("../../imports/helper");
 
-route.get("/", verifyToken, (req, res) => {
-    // if query search by query, else send everything
+route.get("/", (req, res) => {
+    // TODO: if query search by query, else send everything
+    try {
+        const response = new Aluno().find();
+        res.status(response.status || 200).json(response);
+    } catch (err) {
+        res.status(err.status || 500).json(err);
+    }
 });
 
-route.post("/", verifyToken, (req, res) => {
+route.post("/", (req, res) => {
     try {
         const response = new Aluno().create(req);
         res.status(response.status || 200).json(response);
@@ -41,3 +47,5 @@ route.delete("/:id", verifyToken, (req, res) => {
         res.status(err.status || 500).json(err);
     }
 });
+
+module.exports = route;
