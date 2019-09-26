@@ -4,6 +4,7 @@ const { verifyToken } = require("../../imports/helper");
 
 route.get("/", (req, res) => {
     // TODO: if query search by query, else send everything
+    console.log(req);
     try {
         const response = new Aluno().find();
         res.status(response.status || 200).json(response);
@@ -13,6 +14,7 @@ route.get("/", (req, res) => {
 });
 
 route.post("/", (req, res) => {
+    console.log("post", req);
     try {
         const response = new Aluno().create(req);
         res.status(response.status || 200).json(response);
