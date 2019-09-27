@@ -2,9 +2,31 @@ import React, { Component } from "react";
 import "./CadastroPessoa.css";
 
 class CadastroPessoa extends Component {
+    sendRequest(path, method, data) {
+        return new Promise((res, err) => {
+            const xhr = new XMLHttpRequest();
+
+            xhr.open(method, "http://localhost:3001/" + path, true);
+            xhr.setRequestHeader(
+                "Content-type",
+                "application/json; charset=UTF-8"
+            );
+
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    res(JSON.parse(xhr.responseText));
+                } else {
+                    err(xhr.statusText);
+                }
+            };
+            console.log("Enviando dados");
+            xhr.send(JSON.stringify(data));
+        });
+    }
+
     cadastrarAluno() {
         // Dados de exemplo
-        let aluno = {
+        const aluno = {
             name: document.getElementById("inputName").value, // obrigatorio
             phone: document.getElementById("inputPhone").value, //obrigatorio
             email: document.getElementById("inputEmail").value, //obrigatorio
@@ -12,17 +34,11 @@ class CadastroPessoa extends Component {
             birthday: document.getElementById("inputBirthday").value,
             instagram: document.getElementById("inputInsta").value
         };
-        console.log(aluno);
 
-        fetch("http://localhost:3002/alunos", {
-            method: "POST",
-            body: JSON.stringify(aluno),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(console.log)
-            .catch(console.log);
+        this.sendRequest("alunos", "POST", aluno).then((res) => {
+            console.log(res);
+            // TODO
+        });
     }
     render() {
         return (
@@ -62,7 +78,7 @@ class CadastroPessoa extends Component {
                             <input
                                 type="submit"
                                 value="Registrar Aluno"
-                                onClick={this.cadastrarAluno}
+                                onClick={this.cadastrarAluno.bind(this)}
                             ></input>
                         </div>
                     </div>

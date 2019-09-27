@@ -4,13 +4,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 // Mongo connection
-mongoose.connect(
-    process.env.MONGO_URL,
-    {
+
+try {
+    mongoose.connect(process.env.MONGO_URL, {
         useNewUrlParser: true
-    },
-    () => console.log("Connected to DB")
-);
+    });
+    console.log("Connected to DB");
+} catch (err) {
+    console.log(err);
+}
 
 // Settings
 app.use(cors());
