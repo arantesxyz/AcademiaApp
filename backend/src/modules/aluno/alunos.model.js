@@ -38,4 +38,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("alunos", schema);
+module.exports = mongoose.model("aluno", schema);

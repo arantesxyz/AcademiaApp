@@ -3,43 +3,19 @@ module.exports = class CRUD {
         this.model = model;
     }
 
-    insert(data) {
-        return new this.model(data).save();
+    async insert(data) {
+        return await new this.model(data).save();
     }
 
-    find(query = {}, fields = "", options = {}) {
-        let toReturn = [];
-
-        this.model.find(query, fields, options, (err, docs) => {
-            if (err) throw new Error(err);
-
-            toReturn = docs;
-        });
-
-        return toReturn;
+    async find(query = {}, fields, options = {}) {
+        return await this.model.find(query, fields, options);
     }
 
-    findOne(query = {}, fields = "", options = {}) {
-        let toReturn = {};
-
-        this.model.findOne(query, fields, options, (err, doc) => {
-            if (err) throw new Error(err);
-
-            toReturn = doc;
-        });
-
-        return toReturn;
+    async findOne(query = {}, fields, options = {}) {
+        return await this.model.findOne(query, fields, options);
     }
 
-    remove() {
-        let toReturn;
-
-        this.model.findOneAndDelete(query, options, (err, doc) => {
-            if (err) throw new Error(err);
-
-            toReturn = doc;
-        });
-
-        return toReturn;
+    async remove(query = {}, options = {}) {
+        return await this.model.findOneAndDelete(query, options);
     }
 };

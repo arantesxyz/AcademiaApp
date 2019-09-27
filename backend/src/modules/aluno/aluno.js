@@ -6,7 +6,7 @@ module.exports = class Aluno extends CRUD {
         super(Alunos);
     }
 
-    create(req) {
+    async create(req) {
         const aluno = {
             name: req.body.name,
             phone: req.body.phone,
@@ -18,6 +18,6 @@ module.exports = class Aluno extends CRUD {
 
         // TODO: verify aluno
 
-        return this.insert(aluno);
+        return await this.insert(aluno);
     }
 };

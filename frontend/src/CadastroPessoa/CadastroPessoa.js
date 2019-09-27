@@ -5,7 +5,7 @@ class CadastroPessoa extends Component {
     cadastrarAluno() {
         // Dados de exemplo
         let aluno = {
-            nome: document.getElementById("inputName").value, // obrigatorio
+            name: document.getElementById("inputName").value, // obrigatorio
             phone: document.getElementById("inputPhone").value, //obrigatorio
             email: document.getElementById("inputEmail").value, //obrigatorio
             address: document.getElementById("inputAddress").value,
