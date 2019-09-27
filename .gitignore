@@ -1,5 +1,4 @@
 .deploy/
 *.env
 *docker-compose.yml
-.vscode/
-node_modules/
+node_modules/*
