@@ -25,6 +25,9 @@ app.use("/auth", authRoute);
 const alunoRoute = require("./modules/aluno/aluno.routes");
 app.use("/alunos", alunoRoute);
 
+const turmaRoute = require("./modules/turma/turma.routes");
+app.use("/turmas", turmaRoute);
+
 // Start server
 app.listen(process.env.PORT, () =>
     console.log(`Server running on port ${process.env.PORT}`)
