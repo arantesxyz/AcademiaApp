@@ -6,7 +6,7 @@ class CadastroPessoa extends Component {
         return new Promise((res, err) => {
             const xhr = new XMLHttpRequest();
 
-            xhr.open(method, "http://localhost:3001/" + path, true);
+            xhr.open(method, "http://eu.arantes.xyz:3001/" + path, true);
             xhr.setRequestHeader(
                 "Content-type",
                 "application/json; charset=UTF-8"
