@@ -22,8 +22,10 @@ const schema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        max: 1024,
         min: 6
+    },
+    role: {
+        type: Object
     },
     createdAt: {
         type: Date,
