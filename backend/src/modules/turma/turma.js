@@ -16,7 +16,10 @@ module.exports = class Turma extends CRUD {
         };
 
         // TODO: verify turma
-
-        return await this.insert(turma);
+        try {
+            return await this.insert(turma);
+        } catch (error) {
+            console.log("Turmas error", error);
+        }
     }
 };
