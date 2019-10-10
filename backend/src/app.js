@@ -1,17 +1,21 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 // Mongo connection
-mongoose.connect(
-    process.env.MONGO_URL,
-    {
+
+try {
+    mongoose.connect(process.env.MONGO_URL, {
         useNewUrlParser: true
-    },
-    () => console.log("Connected to DB")
-);
+    });
+    console.log("Connected to DB");
+} catch (err) {
+    console.log(err);
+}
 
 // Settings
+app.use(cors());
 app.use(express.json());
 
 // Routes
@@ -20,6 +24,9 @@ app.use("/auth", authRoute);
 
 const alunoRoute = require("./modules/aluno/aluno.routes");
 app.use("/alunos", alunoRoute);
+
+const turmaRoute = require("./modules/turma/turma.routes");
+app.use("/turmas", turmaRoute);
 
 // Start server
 app.listen(process.env.PORT, () =>
