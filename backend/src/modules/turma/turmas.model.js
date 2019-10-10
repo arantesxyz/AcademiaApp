@@ -7,25 +7,23 @@ const schema = new mongoose.Schema({
         max: 255,
         min: 6
     },
-    username: {
+    description: {
+        type: String
+    },
+    modality: {
         type: String,
         required: true,
         max: 255,
         min: 6
     },
-    email: {
-        type: String,
-        required: true,
-        max: 255,
-        min: 6
+    times: {
+        type: Array
     },
-    password: {
-        type: String,
-        required: true,
-        min: 6
+    maxNumOfStudents: {
+        type: Number
     },
-    role: {
-        type: Object
+    numOfStudents: {
+        type: Number
     },
     createdAt: {
         type: Date,
@@ -33,4 +31,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("users", schema);
+module.exports = mongoose.model("turma", schema);

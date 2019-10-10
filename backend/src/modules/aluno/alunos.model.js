@@ -32,6 +32,9 @@ const schema = new mongoose.Schema({
         max: 50,
         min: 3
     },
+    turmas: {
+        type: Array
+    },
     createdAt: {
         type: Date,
         default: Date.now
