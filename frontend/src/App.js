@@ -1,22 +1,18 @@
-import React, { Component } from "react";
 import "./App.css";
-import Header from "./Header/Header";
-import Sidebar from "./Sidebar/Sidebar";
-import CadstroPessoa from "./CadastroPessoa/CadastroPessoa";
-import CadastroTurma from "./CadastroTurma/CadastroTurma";
+import React, { Component } from "react";
+import { RegisterStudent } from "./components/RegisterStudent/RegisterStudent";
+import { RegisterClass } from "./components/RegisterClass/RegisterClass";
 
 class App extends Component {
+    componentDidMount() {
+        document.title = "Academia App";
+    }
+
     render() {
         return (
             <div className="App">
-                <Header></Header>
-                <Sidebar></Sidebar>
-                <div className="App-intro">
-                    <div>
-                        <CadstroPessoa></CadstroPessoa>
-                        <CadastroTurma></CadastroTurma>
-                    </div>
-                </div>
+                <RegisterStudent></RegisterStudent>
+                <RegisterClass></RegisterClass>
             </div>
         );
     }
