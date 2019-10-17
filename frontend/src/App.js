@@ -13,10 +13,6 @@ import { Class } from "./components/Class/Class";
 import { Classes } from "./components/Classes/Classes";
 
 class App extends Component {
-    componentDidMount() {
-        document.title = "Academia App";
-    }
-
     render() {
         return (
             <div className="App row nopadding">
