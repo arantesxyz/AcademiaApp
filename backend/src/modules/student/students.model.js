@@ -32,7 +32,7 @@ const schema = new mongoose.Schema({
         max: 50,
         min: 3
     },
-    turmas: {
+    classes: {
         type: Array
     },
     createdAt: {
@@ -41,4 +41,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("aluno", schema);
+module.exports = mongoose.model("student", schema);

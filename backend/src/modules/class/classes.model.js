@@ -31,4 +31,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("turma", schema);
+module.exports = mongoose.model("class", schema);
