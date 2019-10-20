@@ -8,6 +8,9 @@ export class Student extends Component {
         return (
             <div className="student">
                 <h1 className="text-center">Listar único aluno</h1>
+                <p className="text-center">
+                    Você está vendo o aluno: {this.props.match.params.id}
+                </p>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import "./Classes.css";
 
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
@@ -38,8 +39,8 @@ export class Classes extends Component {
                                 <th>Nome</th>
                                 <th>Descrição</th>
                                 <th>Modalidade</th>
-                                <th>Horários</th>
                                 <th>Alunos</th>
+                                <th>Mais</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -51,13 +52,15 @@ export class Classes extends Component {
                                         <td>{item.description}</td>
                                         <td>{item.modality}</td>
                                         <td>
-                                            <a href="#">Ver horários</a>
-                                        </td>
-                                        <td>
                                             {(item.studens &&
                                                 item.students.length) ||
                                                 0}
                                             /{item.maxNumOfStudents}
+                                        </td>
+                                        <td>
+                                            <Link to={`/turma/${item._id}`}>
+                                                Ver mais
+                                            </Link>
                                         </td>
                                         <td>
                                             <a href="#">
