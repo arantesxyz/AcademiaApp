@@ -22,11 +22,11 @@ app.use(express.json());
 const authRoute = require("./modules/auth/auth.routes");
 app.use("/auth", authRoute);
 
-const alunoRoute = require("./modules/aluno/aluno.routes");
-app.use("/alunos", alunoRoute);
+const classRoute = require("./modules/student/student.routes");
+app.use("/alunos", classRoute);
 
-const turmaRoute = require("./modules/turma/turma.routes");
-app.use("/turmas", turmaRoute);
+const classRoute = require("./modules/class/class.routes");
+app.use("/turmas", classRoute);
 
 // Start server
 app.listen(process.env.PORT, () =>

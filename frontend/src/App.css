@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 .App {
-  text-align: center;
-  
+    font-family: "roboto";
 }
 
-
-
-.App-intro {
-  font-size: large;
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
+.content {
+    padding: 30px 100px;
+}

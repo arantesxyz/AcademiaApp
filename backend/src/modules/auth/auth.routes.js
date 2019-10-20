@@ -1,6 +1,6 @@
 const route = require("express").Router();
 const jwt = require("jsonwebtoken");
-const { User } = require("../user/user");
+const User = require("../user/user");
 
 route.get("/login", (req, res) => {
     if (!req.query)
@@ -8,6 +8,7 @@ route.get("/login", (req, res) => {
             error: { message: "Data not valid", code: 400 }
         });
 
+    // TODO: validate req.query and create variables
     try {
         const userId = new User().create({
             name,
