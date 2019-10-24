@@ -11,6 +11,8 @@ import { Students } from "./components/Students/Students";
 import { Student } from "./components/Student/Student";
 import { Class } from "./components/Class/Class";
 import { Classes } from "./components/Classes/Classes";
+import { Payments} from "./components/Payments/Payments";
+import { RegisterPayment} from "./components/RegisterPayment/RegisterPayment";
 
 class App extends Component {
     render() {
@@ -53,6 +55,16 @@ class App extends Component {
                                     exact
                                     path="/alunos/adicionar"
                                     component={RegisterStudent}
+                                />
+                                <Route
+                                    exacts
+                                    path="/payments/"
+                                    component={Payments}
+                                />
+                                <Route
+                                    exacts
+                                    path="/payments/adicionar"
+                                    component={RegisterPayment}
                                 />
                             </Switch>
                         </div>
