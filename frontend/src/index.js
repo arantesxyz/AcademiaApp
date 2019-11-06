@@ -5,9 +5,27 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
+import {
+    faTrashAlt,
+    faEdit,
+    faHome,
+    faUniversity,
+    faUserGraduate,
+    faFileInvoiceDollar,
+    faBars,
+    faTimes
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faTrashAlt, faEdit);
+library.add(
+    faTrashAlt,
+    faEdit,
+    faHome,
+    faUniversity,
+    faUserGraduate,
+    faFileInvoiceDollar,
+    faBars,
+    faTimes
+);
 
 ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();
