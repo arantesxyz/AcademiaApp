@@ -8,7 +8,8 @@ module.exports = class Student extends CRUD {
 
     async getStudentsInClass(classId) {
         try {
-            return await this.find({ classes: classId }, "_id");
+            const response = await this.find({ classes: classId }, "_id");
+            return response.map((e) => e._id);
         } catch (err) {
             console.log("Student#getStudentsInClass", err);
         }

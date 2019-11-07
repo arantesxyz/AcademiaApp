@@ -33,7 +33,7 @@ const schema = new mongoose.Schema({
         min: 3
     },
     classes: {
-        type: Array
+        type: [String]
     },
     createdAt: {
         type: Date,

@@ -28,7 +28,7 @@ const classRoute = require("./modules/class/class.routes");
 app.use("/classes", classRoute);
 
 const paymentRoute = require("./modules/payment/payment.routes");
-app.use("/payment", paymentRoute);
+app.use("/payments", paymentRoute);
 
 // Start server
 app.listen(process.env.PORT, () =>
