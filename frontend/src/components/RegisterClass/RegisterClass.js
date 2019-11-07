@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./RegisterClass.css";
 
-import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
 export class RegisterClass extends Component {
     state = {
@@ -70,12 +69,11 @@ export class RegisterClass extends Component {
         return (
             <div className="registerClass">
                 <h1 className="text-center">Nova turma</h1>
-                <Form>
-                    <FormGroup>
-                        <div className="form-row">
-                            <div className="col-md-7">
-                                <Label for="name">Nome:</Label>
-                                <Input
+                <form>
+                        <div className="">
+                            <div className="">
+                                <label for="name">Nome:</label>
+                                <input
                                     id="name"
                                     type="text"
                                     value={this.state.model.name}
@@ -83,9 +81,10 @@ export class RegisterClass extends Component {
                                     onChange={(e) => this.setValue(e, "name")}
                                 />
                             </div>
-                            <div className="col-md-3">
-                                <Label for="modality">Modalidade:</Label>
-                                <Input
+                            <div className="">
+                                <label for="modality">Modalidade:</label>
+                             {/* SELECT BOX HERE
+                                <input
                                     id="modality"
                                     type="select"
                                     value={this.state.model.modality}
@@ -95,13 +94,13 @@ export class RegisterClass extends Component {
                                 >
                                     <option>Natação</option>
                                     <option>Hidroginástica</option>
-                                </Input>
+                                </input> */}
                             </div>
-                            <div className="col-md-2">
-                                <Label for="maxNumOfStudents">
+                            <div className="">
+                                <label for="maxNumOfStudents">
                                     Max de alunos:
-                                </Label>
-                                <Input
+                                </label>
+                                <input
                                     id="maxNumOfStudents"
                                     type="number"
                                     value={this.state.model.maxNumOfStudents}
@@ -111,10 +110,10 @@ export class RegisterClass extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="form-row">
-                            <div className="col-md-12">
-                                <Label for="description">Descrição:</Label>
-                                <Input
+                        <div className="">
+                            <div className="">
+                                <label for="description">Descrição:</label>
+                                <input
                                     id="description"
                                     type="text"
                                     value={this.state.model.description}
@@ -125,18 +124,16 @@ export class RegisterClass extends Component {
                                 />
                             </div>
                         </div>
-                    </FormGroup>
 
                     {/* Times div */}
-                    <div className="times-div">
-                        <h4 className="text-center">Horários:</h4>
-                        <Input
+                    <div className="">
+                        <h4 className="">Horários:</h4>
+                        <input
                             id="btn-plus"
                             type="button"
                             value="Adicionar horário"
                             onClick={this.addTime}
                         />
-                        <FormGroup id="timeForm" className="time-box">
                             {this.state.model.times.map((item) => (
                                 <Times
                                     key={item.id}
@@ -145,32 +142,31 @@ export class RegisterClass extends Component {
                                     removeTime={this.removeTime}
                                 ></Times>
                             ))}
-                        </FormGroup>
                     </div>
                     {/* End times div */}
 
                     {/* Buttons */}
-                    <div className="form-row">
-                        <div className="col-md-6">
-                            <Button color="primary" block onClick={this.create}>
+                    <div className="">
+                        <div className="">
+                            <button color="primary" block onClick={this.create}>
                                 {" "}
                                 Criar turma{" "}
-                            </Button>
+                            </button>
                         </div>
 
-                        <div className="col-md-6">
-                            <Button
+                        <div className="">
+                            <button
                                 color="secondary"
                                 block
                                 onClick={this.cleanForm}
                             >
                                 {" "}
                                 Limpar formulário{" "}
-                            </Button>
+                            </button>
                         </div>
                     </div>
                     {/* End Buttons */}
-                </Form>
+                </form>
             </div>
         );
     }
@@ -199,10 +195,11 @@ class Times extends Component {
     render() {
         return (
             <div className="App">
-                <div className="form-row">
-                    <div className="col-md-6">
-                        <Label for="weekDay">Dia:</Label>
-                        <Input
+                <div className="">
+                    <div className="">
+                        <label for="weekDay">Dia:</label>
+                        {/* SELECT BOX HERE
+                        <input
                             id="weekDay"
                             type="select"
                             value={this.state.weekDay}
@@ -215,11 +212,11 @@ class Times extends Component {
                             <option>Quinta-feira</option>
                             <option>Sexta-feira</option>
                             <option>Sabado</option>
-                        </Input>
+                        </input> */}
                     </div>
-                    <div className="col-md-5">
-                        <Label for="hour">Hora:</Label>
-                        <Input
+                    <div className="">
+                        <label for="hour">Hora:</label>
+                        <input
                             id="hour"
                             type="text"
                             value={this.state.hour}
@@ -227,9 +224,9 @@ class Times extends Component {
                             onChange={(e) => this.setValue(e, "hour")}
                         />
                     </div>
-                    <div className="col-md-1">
-                        <Label for="hour">Excluir:</Label>
-                        <Input
+                    <div className="">
+                        <label for="hour">Excluir:</label>
+                        <input
                             className="btn-danger"
                             type="button"
                             value="-"

@@ -6,7 +6,7 @@ import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { RegisterStudent} from "../RegisterStudent/RegisterStudent";
 export class Students extends Component {
     constructor(props) {
         super(props);
