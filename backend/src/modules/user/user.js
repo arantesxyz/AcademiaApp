@@ -6,13 +6,16 @@ module.exports = class User extends CRUD {
         super(Users);
     }
 
-    // if(bcrypt.compareSync('somePassword', hash)) {
-    //     // Passwords match
-    //    } else {match
-    //     // Passwords don't
-    //    }
-
     create(data) {
         return this.insert(data);
+    }
+
+    loginCheck(data) {
+        const user = this.find(data, "_id");
+
+        if (!user || !user._id)
+            throw { status: 403, message: "Username or password wrong." };
+
+        return user._id;
     }
 };

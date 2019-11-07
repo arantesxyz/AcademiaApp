@@ -19,7 +19,7 @@ const schema = new mongoose.Schema({
         max: 255,
         min: 6
     },
-    password: {
+    hash: {
         type: String,
         required: true,
         min: 6
