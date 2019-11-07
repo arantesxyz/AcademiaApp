@@ -21,7 +21,7 @@ export class Classes extends Component {
     async _setStateClasses() {
         let response = [];
         try {
-            response = await SendRequest("/turmas", "GET");
+            response = await SendRequest("/classes", "GET");
         } catch (error) {
             console.log("Error: ", error);
         }

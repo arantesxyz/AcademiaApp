@@ -21,7 +21,7 @@ export class Students extends Component {
     async _setStateStudents() {
         let response = [];
         try {
-            response = await SendRequest("/alunos", "GET");
+            response = await SendRequest("/students", "GET");
         } catch (error) {
             console.log("Error: ", error);
         }

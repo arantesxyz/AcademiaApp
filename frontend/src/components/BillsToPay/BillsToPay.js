@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
@@ -19,7 +19,10 @@ export class BillsToPay extends Component {
     async _setStateBillsToPay() {
         let response = [];
         try {
-            response = await SendRequest("/payments?type=company&debit=true", "GET");
+            response = await SendRequest(
+                "/payments?type=company&debit=true",
+                "GET"
+            );
         } catch (error) {
             console.log("Error: ", error);
         }
