@@ -11,6 +11,7 @@ import { Class } from "../Class/Class";
 import { Classes } from "../Classes/Classes";
 import { Payments } from "../Payments/Payments";
 import { RegisterPayment } from "../RegisterPayment/RegisterPayment";
+import { BillsToPay } from "../BillsToPay/BillsToPay";
 
 export class Dashboard extends Component {
     render() {
@@ -32,12 +33,17 @@ export class Dashboard extends Component {
                             path="/alunos/adicionar"
                             component={RegisterStudent}
                         />
-                        <Route exacts path="/payments/" component={Payments} />
                         <Route
                             exacts
-                            path="/payments/adicionar"
+                            path="/pagamentos/"
+                            component={Payments}
+                        />
+                        <Route
+                            exacts
+                            path="/pagamentos/adicionar"
                             component={RegisterPayment}
                         />
+                        <Route exacts path="/contas" component={BillsToPay} />
                     </Switch>
                 </Router>
             </div>
