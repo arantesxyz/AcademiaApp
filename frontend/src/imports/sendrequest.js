@@ -1,12 +1,11 @@
+const API_URL = "https://painel.academiagolfinhodourado.com.br/api";
+//const API_URL = "http://localhost:3001";
+
 export const SendRequest = (path, method, data) => {
     return new Promise((res, err) => {
         const xhr = new XMLHttpRequest();
 
-        xhr.open(
-            method,
-            "https://painel.academiagolfinhodourado.com.br/api" + path,
-            true
-        );
+        xhr.open(method, API_URL + path, true);
         xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
         xhr.onload = () => {

@@ -25,10 +25,13 @@ const schema = new mongoose.Schema({
     numOfStudents: {
         type: Number
     },
+    students: {
+        type: [String]
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = mongoose.model("class", schema);
+module.exports = mongoose.model("classes", schema);

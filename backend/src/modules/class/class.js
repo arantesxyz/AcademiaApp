@@ -11,7 +11,7 @@ module.exports = class Class extends CRUD {
         let response = [];
 
         try {
-            response = await this.find();
+            response = await super.find();
         } catch (err) {
             console.log("Class#find", err);
         }
@@ -22,6 +22,7 @@ module.exports = class Class extends CRUD {
                 item.students = await new Student().getStudentsInClass(
                     item._id
                 );
+                return item;
             })
         );
     }
