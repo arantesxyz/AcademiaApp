@@ -7,33 +7,26 @@ const schema = new mongoose.Schema({
         max: 255,
         min: 6
     },
-    phone: {
-        type: String,
-        required: true,
-        max: 15,
-        min: 9
+    description: {
+        type: String
     },
-    email: {
+    modality: {
         type: String,
         required: true,
         max: 255,
         min: 6
     },
-    address: {
-        type: String,
-        max: 255,
-        min: 9
-    },
-    birthday: {
-        type: Date
-    },
-    instagram: {
-        type: String,
-        max: 50,
-        min: 3
-    },
-    turmas: {
+    times: {
         type: Array
+    },
+    maxNumOfStudents: {
+        type: Number
+    },
+    numOfStudents: {
+        type: Number
+    },
+    students: {
+        type: [String]
     },
     createdAt: {
         type: Date,
@@ -41,4 +34,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("aluno", schema);
+module.exports = mongoose.model("classes", schema);

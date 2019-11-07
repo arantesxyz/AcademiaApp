@@ -1,21 +1,17 @@
-import React, { Component } from "react";
 import "./App.css";
-import Header from "./Header/Header";
-import Sidebar from "./Sidebar/Sidebar";
-import CadstroPessoa from "./CadastroPessoa/CadastroPessoa";
-import CadastroTurma from "./CadastroTurma/CadastroTurma";
+
+import React, { Component } from "react";
+
+import { Dashboard } from "./components/Dashboard/Dashboard";
+import { Sidebar } from "./components/Sidebar/Sidebar";
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <Header></Header>
+            <div className="app">
                 <Sidebar></Sidebar>
-                <div className="App-intro">
-                    <div>
-                        <CadstroPessoa></CadstroPessoa>
-                        <CadastroTurma></CadastroTurma>
-                    </div>
+                <div className="app-content">
+                    <Dashboard></Dashboard>
                 </div>
             </div>
         );
