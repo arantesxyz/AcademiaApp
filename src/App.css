@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+.app {
+    font-family: "roboto";
+    background-color: rgb(226, 226, 226);
+    height: 100vh;
+}
+
+.app-content {
+    padding-top: 30px;
+    width: 100%;
+}
+
+@media screen and (min-width: 360px) {
+    .app {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .app-content {
+        padding-top: 0;
+    }
+}
+
+.nospacing {
+    padding: 0 !important;
+    margin: 0 !important;
+}
