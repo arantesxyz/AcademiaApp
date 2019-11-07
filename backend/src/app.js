@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 // Mongo connection
-
 try {
     mongoose.connect(process.env.MONGO_URL, {
         useNewUrlParser: true
@@ -22,11 +21,14 @@ app.use(express.json());
 const authRoute = require("./modules/auth/auth.routes");
 app.use("/auth", authRoute);
 
-const alunoRoute = require("./modules/aluno/aluno.routes");
-app.use("/alunos", alunoRoute);
+const studentRoute = require("./modules/student/student.routes");
+app.use("/students", studentRoute);
 
-const turmaRoute = require("./modules/turma/turma.routes");
-app.use("/turmas", turmaRoute);
+const classRoute = require("./modules/class/class.routes");
+app.use("/classes", classRoute);
+
+const paymentRoute = require("./modules/payment/payment.routes");
+app.use("/payments", paymentRoute);
 
 // Start server
 app.listen(process.env.PORT, () =>

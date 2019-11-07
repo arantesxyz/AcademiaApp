@@ -7,11 +7,11 @@ const schema = new mongoose.Schema({
         max: 255,
         min: 6
     },
-    username: {
+    phone: {
         type: String,
         required: true,
-        max: 255,
-        min: 6
+        max: 15,
+        min: 9
     },
     email: {
         type: String,
@@ -19,13 +19,21 @@ const schema = new mongoose.Schema({
         max: 255,
         min: 6
     },
-    hash: {
+    address: {
         type: String,
-        required: true,
-        min: 6
+        max: 255,
+        min: 9
     },
-    role: {
-        type: Object
+    birthday: {
+        type: Date
+    },
+    instagram: {
+        type: String,
+        max: 50,
+        min: 3
+    },
+    classes: {
+        type: [String]
     },
     createdAt: {
         type: Date,
@@ -33,4 +41,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("user", schema);
+module.exports = mongoose.model("student", schema);

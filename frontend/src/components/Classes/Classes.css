@@ -1,0 +1,8 @@
+.center {
+    display: table;
+    margin: 0 auto;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
