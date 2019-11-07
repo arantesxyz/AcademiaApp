@@ -2,27 +2,48 @@ const route = require("express").Router();
 const jwt = require("jsonwebtoken");
 const User = require("../user/user");
 
-route.get("/login", (req, res) => {
-    if (!req.query)
-        res.status(400).json({
-            error: { message: "Data not valid", code: 400 }
-        });
+route.post("/register", (req, res) => {
+    // TODO: validate newUser
+    const newUser = {
+        name: req.body.name,
+        username: req.body.username,
+        email: req.body.email,
+        hash: req.body.hash
+    };
 
-    // TODO: validate req.query and create variables
     try {
-        const userId = new User().create({
-            name,
-            username,
-            email,
-            password
-        });
+        const userId = new User().create(newUser);
 
-        // login sucess
         const token = jwt.sign({ userId }, process.env.JWT_SECRET);
 
         res.header("auth-token", token).json({ token });
     } catch (err) {
-        res.status(500).json(err);
+        res.status(err.status || 500).json(err);
+    }
+});
+
+route.get("/login", (req, res) => {
+    if (!req.query)
+        res.status(400).json({
+            error: { message: "Data not valid", status: 400 }
+        });
+
+    // TODO: validate newUser
+
+    try {
+        const token = jwt.sign(
+            {
+                userId: new User().loginCheck({
+                    email: req.query.email,
+                    hash: req.query.hash
+                })
+            },
+            process.env.JWT_SECRET
+        );
+
+        res.header("auth-token", token).json({ token });
+    } catch (err) {
+        res.status(err.status || 500).json(err);
     }
 });
 
