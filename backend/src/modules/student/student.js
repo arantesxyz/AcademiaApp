@@ -1,5 +1,5 @@
 const CRUD = require("../../imports/crud");
-const Students = require("./Students.model");
+const Students = require("./students.model");
 
 module.exports = class Student extends CRUD {
     constructor() {
