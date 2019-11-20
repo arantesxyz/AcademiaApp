@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,7 +33,6 @@ export class BillsToPay extends Component {
             <div className="classes">
                 <h1 className="text-center">Contas a pagar</h1>
                 <div className="center margin-top">
-                    <Table>
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -62,7 +60,6 @@ export class BillsToPay extends Component {
                                     </tr>
                                 ))}
                         </tbody>
-                    </Table>
                     {!this.state.BillsToPay.length && (
                         <p className="text-center">Carregando...</p>
                     )}

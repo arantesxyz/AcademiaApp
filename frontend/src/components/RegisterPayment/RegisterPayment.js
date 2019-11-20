@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./RegisterPayment.css";
 
-import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
 export class RegisterPayment extends Component {
     state = {
@@ -18,12 +17,10 @@ export class RegisterPayment extends Component {
         return (
             <div className="registerPayment">
                 <h1 className="text-center">Registrar pagamento</h1>
-                <Form>
-                    <FormGroup>
                         <div className="form-row">
                             <div className="col-md-9">
-                                <Label for="name">Nome:</Label>
-                                <Input
+                                <label for="name">Nome:</label>
+                                <input
                                     id="name"
                                     type="text"
                                     value={this.state.model.name}
@@ -32,15 +29,13 @@ export class RegisterPayment extends Component {
                                 />
                             </div>
                         </div>
-                    </FormGroup>
 
-                    <FormGroup>
                         <div className="form-row">
                             <div className="col-md-9">
-                                <Label for="data">
+                                <label for="data">
                                     Data do pagamento:
-                                </Label>
-                                <Input
+                                </label>
+                                <input
                                     id="paymentDate"
                                     type="date"
                                     value={this.state.model.paymentDate}
@@ -51,11 +46,10 @@ export class RegisterPayment extends Component {
                                 />
                             </div>
                         </div>
-                    </FormGroup>
-                    <FormGroup>
+
                         <div className="form-row">
-                            <Label for="value">Valor:</Label>
-                            <Input
+                            <label for="value">Valor:</label>
+                            <input
                                 id="value"
                                 type="text"
                                 value={this.state.model.value}
@@ -63,30 +57,28 @@ export class RegisterPayment extends Component {
                                 onChange={(e) => this.setValue(e, "value")}
                             />
                         </div>
-                    </FormGroup>
 
                     {/* Buttons */}
                     <div className="form-row">
                         <div className="col-md-6">
-                            <Button color="primary" block onClick={this.create}>
+                            <button color="primary" block onClick={this.create}>
                                 {" "}
                                 Gravar{" "}
-                            </Button>
+                            </button>
                         </div>
 
                         <div className="col-md-6">
-                            <Button
+                            <button
                                 color="secondary"
                                 block
                                 onClick={this.create}
                             >
                                 {" "}
                                 Limpar formulário{" "}
-                            </Button>
+                            </button>
                         </div>
                     </div>
                     {/* End Buttons */}
-                </Form>
             </div>
         );
     }

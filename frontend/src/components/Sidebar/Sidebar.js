@@ -16,7 +16,7 @@ export class Sidebar extends Component {
     render() {
         return (
             <div>
-                <div className={`sidebar ${this.state.open && "open"}`}>
+                <div className={`sidebar ${this.state.open ? "open":"" }`}>
                     <div className="menu">
                         <a onClick={this.toggle.bind(this)}>
                             <div className="line"></div>
@@ -25,14 +25,14 @@ export class Sidebar extends Component {
                         </a>
                     </div>
 
-                    <div className={`content ${this.state.open && "open"}`}>
+                    <div className={`content ${this.state.open ? "open":" closed"}`}>
                         <figure className="logo">
                             <img
                                 src={window.location.origin + "/logo.png"}
                             ></img>
                         </figure>
 
-                        <div className={`nav ${this.state.open && "open"}`}>
+                        <div className={`nav ${this.state.open ? "open":" closed"}`}>
                             <ul>
                                 <a href="/">
                                     <li>

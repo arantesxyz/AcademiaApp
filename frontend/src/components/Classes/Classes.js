@@ -2,7 +2,6 @@ import "./Classes.css";
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,7 +32,6 @@ export class Classes extends Component {
             <div className="classes">
                 <h1 className="text-center">Lista todas as turmas</h1>
                 <div className="center margin-top">
-                    <Table>
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -73,7 +71,6 @@ export class Classes extends Component {
                                     </tr>
                                 ))}
                         </tbody>
-                    </Table>
                     {!this.state.classes.length && (
                         <p className="text-center">Carregando...</p>
                     )}

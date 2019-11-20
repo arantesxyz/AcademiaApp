@@ -1,8 +1,6 @@
 import "./Payments.css";
 
 import React, { Component } from "react";
-import { Table } from "reactstrap";
-
 import { SendRequest } from "../../imports/sendrequest";
 
 export class Payments extends Component {
@@ -31,7 +29,6 @@ export class Payments extends Component {
             <div className="payments">
                 <h1 className="text-center">Todos os pagamentos</h1>
                 <div className="center margin-top">
-                    <Table>
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -49,7 +46,6 @@ export class Payments extends Component {
                                     </tr>
                                 ))}
                         </tbody>
-                    </Table>
                     {!this.state.payments.length && (
                         <p className="text-center">Carregando...</p>
                     )}

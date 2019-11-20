@@ -2,17 +2,17 @@ import "./Students.css";
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { RegisterStudent} from "../RegisterStudent/RegisterStudent";
 export class Students extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             students: []
+            
         };
 
         this._setStateStudents();
@@ -26,6 +26,7 @@ export class Students extends Component {
             console.log("Error: ", error);
         }
         console.log(response);
+        
         this.setState({ students: response });
     }
     render() {
@@ -33,7 +34,7 @@ export class Students extends Component {
             <div className="students">
                 <h1 className="text-center">Todos os alunos</h1>
                 <div className="center margin-top">
-                    <Table>
+                    <table>
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -53,9 +54,9 @@ export class Students extends Component {
                                         <td>{item.phone}</td>
                                         <td>{item.instagram}</td>
                                         <td>
-                                            <Link to={`/aluno/${item._id}`}>
+                                            <link to={`/aluno/${item._id}`}>
                                                 Ver mais
-                                            </Link>
+                                            </link>
                                         </td>
 
                                         <td>
@@ -69,7 +70,7 @@ export class Students extends Component {
                                     </tr>
                                 ))}
                         </tbody>
-                    </Table>
+                    </table>
                     {!this.state.students.length && (
                         <p className="text-center">Carregando...</p>
                     )}

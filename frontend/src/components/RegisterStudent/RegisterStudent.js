@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./RegisterStudent.css";
 
-import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
 export class RegisterStudent extends Component {
     state = {
@@ -17,13 +16,12 @@ export class RegisterStudent extends Component {
     render() {
         return (
             <div className="registerStudent">
-                <h1 className="text-center">Novo aluno</h1>
-                <Form>
-                    <FormGroup>
-                        <div className="form-row">
-                            <div className="col-md-9">
-                                <Label for="name">Nome:</Label>
-                                <Input
+                <h1 className="">Novo aluno</h1>
+                <form>
+                        <div className="">
+                            <div className="">
+                                <label for="name">Nome:</label>
+                                <input
                                     id="name"
                                     type="text"
                                     value={this.state.model.name}
@@ -31,9 +29,9 @@ export class RegisterStudent extends Component {
                                     onChange={(e) => this.setValue(e, "name")}
                                 />
                             </div>
-                            <div className="col-md-3">
-                                <Label for="instagram">Instagram:</Label>
-                                <Input
+                            <div className="">
+                                <label for="instagram">Instagram:</label>
+                                <input
                                     id="instagram"
                                     type="text"
                                     value={this.state.model.instagram}
@@ -44,13 +42,11 @@ export class RegisterStudent extends Component {
                                 />
                             </div>
                         </div>
-                    </FormGroup>
 
-                    <FormGroup>
-                        <div className="form-row">
-                            <div className="col-md-3">
-                                <Label for="phone">Telefone:</Label>
-                                <Input
+                        <div className="">
+                            <div className="">
+                                <label for="phone">Telefone:</label>
+                                <input
                                     id="phone"
                                     type="text"
                                     value={this.state.model.phone}
@@ -58,9 +54,9 @@ export class RegisterStudent extends Component {
                                     onChange={(e) => this.setValue(e, "phone")}
                                 />
                             </div>
-                            <div className="col-md-5">
-                                <Label for="email">Email:</Label>
-                                <Input
+                            <div className="">
+                                <label for="email">Email:</label>
+                                <input
                                     id="email"
                                     type="email"
                                     value={this.state.model.email}
@@ -68,11 +64,11 @@ export class RegisterStudent extends Component {
                                     onChange={(e) => this.setValue(e, "email")}
                                 />
                             </div>
-                            <div className="col-md-4">
-                                <Label for="birthday">
+                            <div className="">
+                                <label for="birthday">
                                     Data de Nascimento:
-                                </Label>
-                                <Input
+                                </label>
+                                <input
                                     id="birthday"
                                     type="date"
                                     value={this.state.model.email}
@@ -83,11 +79,10 @@ export class RegisterStudent extends Component {
                                 />
                             </div>
                         </div>
-                    </FormGroup>
-                    <FormGroup>
-                        <div className="form-row">
-                            <Label for="address">Endereço:</Label>
-                            <Input
+
+                        <div className="">
+                            <label for="address">Endereço:</label>
+                            <input
                                 id="address"
                                 type="text"
                                 value={this.state.model.address}
@@ -95,30 +90,30 @@ export class RegisterStudent extends Component {
                                 onChange={(e) => this.setValue(e, "address")}
                             />
                         </div>
-                    </FormGroup>
+
 
                     {/* Buttons */}
-                    <div className="form-row">
-                        <div className="col-md-6">
-                            <Button color="primary" block onClick={this.create}>
+                    <div className="">
+                        <div className="">
+                            <button color="primary" block onClick={this.create}>
                                 {" "}
                                 Gravar{" "}
-                            </Button>
+                            </button>
                         </div>
 
-                        <div className="col-md-6">
-                            <Button
+                        <div className="">
+                            <button
                                 color="secondary"
                                 block
                                 onClick={this.create}
                             >
                                 {" "}
                                 Limpar formulário{" "}
-                            </Button>
+                            </button>
                         </div>
                     </div>
                     {/* End Buttons */}
-                </Form>
+                </form>
             </div>
         );
     }
