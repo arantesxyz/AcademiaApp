@@ -81,7 +81,7 @@
     color: white !important;
 }
 
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 420px) {
     .sidebar {
         display: flex;
         width: 250px;

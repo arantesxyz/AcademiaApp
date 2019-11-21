@@ -1,9 +1,9 @@
 import "./Payments.css";
 
 import React, { Component } from "react";
-import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
+import {RegisterPayment} from '../RegisterPayment/RegisterPayment';
 
 export class Payments extends Component {
     constructor(props) {
@@ -29,9 +29,8 @@ export class Payments extends Component {
     render() {
         return (
             <div className="payments">
-                <h1 className="text-center">Todos os pagamentos</h1>
-                <div className="center margin-top">
-                    <Table>
+                <h1 className="head">Todos os pagamentos</h1>
+                    <table id="payments">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -49,12 +48,13 @@ export class Payments extends Component {
                                     </tr>
                                 ))}
                         </tbody>
-                    </Table>
+                    </table>
                     {!this.state.payments.length && (
-                        <p className="text-center">Carregando...</p>
+                        <p className="loading">Carregando...</p>
                     )}
+                    <RegisterPayment></RegisterPayment>
                 </div>
-            </div>
+            
         );
     }
 }

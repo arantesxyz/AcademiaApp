@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-import { Table } from "reactstrap";
+import "../BillsToPay/BillsToPay.css";
 
 import { SendRequest } from "../../imports/sendrequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {RegisterBillToPay} from '../RegisterBillsToPay/RegisterBillToPay'
 
 export class BillsToPay extends Component {
     constructor(props) {
@@ -31,10 +32,9 @@ export class BillsToPay extends Component {
 
     render() {
         return (
-            <div className="classes">
-                <h1 className="text-center">Contas a pagar</h1>
-                <div className="center margin-top">
-                    <Table>
+            <div className="bills">
+                <h1 className="head">Contas a pagar</h1>
+                    <table id="billsTable">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -52,22 +52,22 @@ export class BillsToPay extends Component {
                                         <td>{item.description}</td>
                                         <td>{item.value}</td>
                                         <td>
-                                            <a href="#">
+                                            <a href="#" title='Editar'>
                                                 <FontAwesomeIcon icon="edit" />{" "}
                                             </a>
-                                            <a href="#">
+                                            <a href="#" title='Deletar'>
                                                 <FontAwesomeIcon icon="trash-alt" />
                                             </a>
                                         </td>
                                     </tr>
                                 ))}
                         </tbody>
-                    </Table>
+                    </table>
                     {!this.state.BillsToPay.length && (
-                        <p className="text-center">Carregando...</p>
+                        <p className="loading">Carregando...</p>
                     )}
+                    <RegisterBillToPay></RegisterBillToPay>
                 </div>
-            </div>
         );
     }
 }

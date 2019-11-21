@@ -1,0 +1,33 @@
+#payments {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #tableStudepaymentsnts td, #payments th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #payments tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #payments tr:hover {background-color: #ddd;}
+  
+  #payments th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#295080;
+    color: white;
+  }
+  .head{
+    display: flex;
+    justify-content: center;
+    border-top: 5%;
+    border-bottom: 5%;
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

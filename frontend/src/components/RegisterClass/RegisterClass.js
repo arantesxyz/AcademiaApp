@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./RegisterClass.css";
+import {SendRequest}from "../../imports/sendrequest";
 
-import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
 export class RegisterClass extends Component {
     state = {
@@ -65,43 +65,60 @@ export class RegisterClass extends Component {
 
         this.setState({ model });
     };
+    
+    async _sendStateClass() {
+        if(this.validate()){
+            const {model} = this.state.model
+        let response = [];
+        try {
+            response = await SendRequest("/class/", "POST",model);
+        } catch (error) {
+            console.log("Error: ", error);
+        }
+        console.log(response);
+        window.postMessage("Classe criada") ;
+    }
+        console.log("Error: algum campo vazio");
+    }
+    validate(){
+        const {validation} = this.state.model;
+        if(!validation.name || !validation.modality || !validation.maxNumOfStudents || !validation.description || !validation.times ){
+            return false
+        }
+        return true;
+    };
 
     render() {
         return (
             <div className="registerClass">
-                <h1 className="text-center">Nova turma</h1>
-                <Form>
-                    <FormGroup>
-                        <div className="form-row">
-                            <div className="col-md-7">
-                                <Label for="name">Nome:</Label>
-                                <Input
+                <h1 className="head">Nova turma</h1>
+                <p></p>
+                <div>
+                <form>
+                                <label for="name">Nome:</label>
+                                <p>
+                                <input
                                     id="name"
                                     type="text"
                                     value={this.state.model.name}
                                     placeholder="Turma 1, Natação 19h, ..."
                                     onChange={(e) => this.setValue(e, "name")}
                                 />
-                            </div>
-                            <div className="col-md-3">
-                                <Label for="modality">Modalidade:</Label>
-                                <Input
-                                    id="modality"
-                                    type="select"
-                                    value={this.state.model.modality}
-                                    onChange={(e) =>
+                                </p>
+                                <label for="modality">Modalidade:</label>
+                                <p>
+                                    <select id="select" value={this.state.model.modality}onChange={(e) =>
                                         this.setValue(e, "modality")
-                                    }
-                                >
-                                    <option>Natação</option>
-                                    <option>Hidroginástica</option>
-                                </Input>
-                            </div>
-                            <div className="col-md-2">
-                                <Label for="maxNumOfStudents">
+                                    }name="modalidade">
+                                     <option value="hidroginastica">Hidroginástica</option>
+                                     <option value="natacao">Natacao</option>
+                                     </select>
+                                     </p>
+                                <label for="maxNumOfStudents">
                                     Max de alunos:
-                                </Label>
-                                <Input
+                                </label>
+                                <p>
+                                <input
                                     id="maxNumOfStudents"
                                     type="number"
                                     value={this.state.model.maxNumOfStudents}
@@ -109,12 +126,11 @@ export class RegisterClass extends Component {
                                         this.setValue(e, "maxNumOfStudents")
                                     }
                                 />
-                            </div>
-                        </div>
-                        <div className="form-row">
-                            <div className="col-md-12">
-                                <Label for="description">Descrição:</Label>
-                                <Input
+                                </p>
+
+                                <label for="description">Descrição:</label>
+                                <p>
+                                <input
                                     id="description"
                                     type="text"
                                     value={this.state.model.description}
@@ -123,20 +139,16 @@ export class RegisterClass extends Component {
                                         this.setValue(e, "description")
                                     }
                                 />
-                            </div>
-                        </div>
-                    </FormGroup>
+                                </p>
 
                     {/* Times div */}
-                    <div className="times-div">
-                        <h4 className="text-center">Horários:</h4>
-                        <Input
+                        <label>Horários: </label>
+                        <input
                             id="btn-plus"
                             type="button"
                             value="Adicionar horário"
                             onClick={this.addTime}
                         />
-                        <FormGroup id="timeForm" className="time-box">
                             {this.state.model.times.map((item) => (
                                 <Times
                                     key={item.id}
@@ -145,32 +157,11 @@ export class RegisterClass extends Component {
                                     removeTime={this.removeTime}
                                 ></Times>
                             ))}
-                        </FormGroup>
+                    <div className="warpInput">             
+                    <input type="submit" value="Cadastrar" onClick={(e) => this._sendStateClass()}></input>
                     </div>
-                    {/* End times div */}
-
-                    {/* Buttons */}
-                    <div className="form-row">
-                        <div className="col-md-6">
-                            <Button color="primary" block onClick={this.create}>
-                                {" "}
-                                Criar turma{" "}
-                            </Button>
-                        </div>
-
-                        <div className="col-md-6">
-                            <Button
-                                color="secondary"
-                                block
-                                onClick={this.cleanForm}
-                            >
-                                {" "}
-                                Limpar formulário{" "}
-                            </Button>
-                        </div>
-                    </div>
-                    {/* End Buttons */}
-                </Form>
+                </form>
+                </div>
             </div>
         );
     }
@@ -198,46 +189,43 @@ class Times extends Component {
 
     render() {
         return (
-            <div className="App">
-                <div className="form-row">
-                    <div className="col-md-6">
-                        <Label for="weekDay">Dia:</Label>
-                        <Input
-                            id="weekDay"
-                            type="select"
-                            value={this.state.weekDay}
-                            onChange={(e) => this.setValue(e, "weekDay")}
-                        >
-                            <option>Domingo</option>
-                            <option>Segunda-feira</option>
-                            <option>Terça-feira</option>
-                            <option>Quarta-feira</option>
-                            <option>Quinta-feira</option>
-                            <option>Sexta-feira</option>
-                            <option>Sabado</option>
-                        </Input>
-                    </div>
-                    <div className="col-md-5">
-                        <Label for="hour">Hora:</Label>
-                        <Input
+            <div className="Time">
+                        <label for="weekDay">Dia:</label>
+                        <p>
+                             <select id="weekDay" value={this.state.weekDay}
+                            onChange={(e) => this.setValue(e, "weekDay")} name="horarios">
+                            <option value='Domingo'>Domingo</option>
+                            <option value='Segunda'>Segunda-feira</option>
+                            <option value='Terca'>Terça-feira</option>
+                            <option value='Quarta'>Quarta-feira</option>
+                            <option value='Quinta'>Quinta-feira</option>
+                            <option value='Sexta'>Sexta-feira</option>
+                            <option value='Sabado'>Sabado</option>
+                            </select>
+                    </p>
+                    <div className="">
+                        <label for="hour">Hora:</label>
+                        <p>
+                        <input
                             id="hour"
                             type="text"
                             value={this.state.hour}
                             placeholder="19:00"
                             onChange={(e) => this.setValue(e, "hour")}
                         />
+                        </p>
                     </div>
-                    <div className="col-md-1">
-                        <Label for="hour">Excluir:</Label>
-                        <Input
+                    <div className="">
+                        <label for="hour">Excluir: </label>
+                        <input
                             className="btn-danger"
                             type="button"
                             value="-"
                             onClick={this.selfDestruction}
                         />
+
                     </div>
                 </div>
-            </div>
         );
     }
 }

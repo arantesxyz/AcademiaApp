@@ -1,19 +1,4 @@
-
-.head{
-    display: flex;
-    justify-content: center;
-    border-top: 5%;
-    border-bottom: 5%;
-}
-.id{
-    
-    display: flex;
-    justify-content: center;
-    border-top: 5%;
-    border-bottom: 5%;
-}
-
-.students{
+.bills{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -25,34 +10,34 @@
     border-bottom: 5%;
 }
 
-#tableStudents {
+#billsTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
   }
   
-  #tableStudents td, #tableStudents th {
+  #billsTable td, #billsTable th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  #tableStudents tr:nth-child(even){background-color: #f2f2f2;}
+  #billsTable tr:nth-child(even){background-color: #f2f2f2;}
   
-  #tableStudents tr:hover {background-color: #ddd;}
+  #billsTable tr:hover {background-color: #ddd;}
   
-  #tableStudents th {
+  #billsTable th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color:#295080;
     color: white;
   }
-  #tableStudents td .icon{
+  #billsTable td .icon{
       display: flex;
       justify-content: center;
   }
   .loading{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }

@@ -6,3 +6,47 @@
 .margin-top {
     margin-top: 20px;
 }
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.classes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.head{
+    display: flex;
+    justify-content: center;
+    border-top: 5%;
+    border-bottom: 5%;
+}
+
+#classesTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #classesTable td, #classesTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #classesTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #classesTable tr:hover {background-color: #ddd;}
+  
+  #classesTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#295080;
+    color: white;
+  }
+  #classesTable td .icon{
+      display: flex;
+      justify-content: center;
+  }

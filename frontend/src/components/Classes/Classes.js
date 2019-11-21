@@ -2,10 +2,10 @@ import "./Classes.css";
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Table } from "reactstrap";
 
 import { SendRequest } from "../../imports/sendrequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {RegisterClass} from "../RegisterClass/RegisterClass";
 
 export class Classes extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ export class Classes extends Component {
     async _setStateClasses() {
         let response = [];
         try {
-            response = await SendRequest("/classes", "GET");
+            response = await SendRequest("/class/", "GET");
         } catch (error) {
             console.log("Error: ", error);
         }
@@ -31,17 +31,14 @@ export class Classes extends Component {
     render() {
         return (
             <div className="classes">
-                <h1 className="text-center">Lista todas as turmas</h1>
-                <div className="center margin-top">
-                    <Table>
+                <h1 className="head">Lista todas as turmas</h1>
+                    <table id="classesTable">
                         <thead>
                             <tr>
                                 <th>Nome</th>
                                 <th>Descrição</th>
                                 <th>Modalidade</th>
                                 <th>Alunos</th>
-                                <th>Mais</th>
-                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,28 +54,15 @@ export class Classes extends Component {
                                                 0}
                                             /{item.maxNumOfStudents}
                                         </td>
-                                        <td>
-                                            <Link to={`/turma/${item._id}`}>
-                                                Ver mais
-                                            </Link>
-                                        </td>
-                                        <td>
-                                            <a href="#">
-                                                <FontAwesomeIcon icon="edit" />{" "}
-                                            </a>
-                                            <a href="#">
-                                                <FontAwesomeIcon icon="trash-alt" />
-                                            </a>
-                                        </td>
                                     </tr>
                                 ))}
                         </tbody>
-                    </Table>
+                    </table>
                     {!this.state.classes.length && (
-                        <p className="text-center">Carregando...</p>
+                        <p className="loading">Carregando...</p>
                     )}
+                    <RegisterClass></RegisterClass>
                 </div>
-            </div>
         );
     }
 }

@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { RegisterClass } from "../RegisterClass/RegisterClass";
-import { RegisterStudent } from "../RegisterStudent/RegisterStudent";
 import { Students } from "../Students/Students";
 import { Student } from "../Student/Student";
 import { Class } from "../Class/Class";
@@ -12,6 +11,8 @@ import { Classes } from "../Classes/Classes";
 import { Payments } from "../Payments/Payments";
 import { RegisterPayment } from "../RegisterPayment/RegisterPayment";
 import { BillsToPay } from "../BillsToPay/BillsToPay";
+import {Home} from "../Home/Home";
+import {UpdateStudent} from '../UpdateStudent/UpdateStudent';
 
 export class Dashboard extends Component {
     render() {
@@ -30,8 +31,8 @@ export class Dashboard extends Component {
                         <Route exact path="/aluno/:id" component={Student} />
                         <Route
                             exact
-                            path="/alunos/adicionar"
-                            component={RegisterStudent}
+                            path="/alunos/editar/:id"
+                            component={UpdateStudent}
                         />
                         <Route
                             exacts
@@ -43,6 +44,7 @@ export class Dashboard extends Component {
                             path="/pagamentos/adicionar"
                             component={RegisterPayment}
                         />
+                         <Route exact path="/home/" component={Home} />
                         <Route exacts path="/contas" component={BillsToPay} />
                     </Switch>
                 </Router>
