@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./RegisterPayment.css";
-import {SendRequest}from  "../../imports/sendrequest";
-
+import { SendRequest } from "../../imports/sendrequest";
 
 export class RegisterPayment extends Component {
     state = {
@@ -15,26 +14,26 @@ export class RegisterPayment extends Component {
     };
 
     async _sendStatePayments() {
-        if(this.validate()){
-            const {model} = this.state.model
-        let response = [];
-        try {
-            response = await SendRequest("/payment/", "POST",model);
-        } catch (error) {
-            console.log("Error: ", error);
+        if (this.validate()) {
+            const { model } = this.state.model;
+            let response = [];
+            try {
+                response = await SendRequest("/payments/", "POST", model);
+            } catch (error) {
+                console.log("Error: ", error);
+            }
+            console.log(response);
         }
-        console.log(response);
-    }
         console.log("Error: algum campo vazio");
-        window.postMessage("Pagamento criado") ;
+        window.postMessage("Pagamento criado");
     }
-    validate(){
-        const {validation} = this.state.model;
-        if(!validation.name || !validation.paymentDate || !validation.value){
-            return false
+    validate() {
+        const { validation } = this.state.model;
+        if (!validation.name || !validation.paymentDate || !validation.value) {
+            return false;
         }
         return true;
-    };
+    }
 
     render() {
         return (
@@ -60,9 +59,7 @@ export class RegisterPayment extends Component {
                     <formgroup>
                         <div className="form-row">
                             <div className="col-md-9">
-                                <label for="data">
-                                    Data do pagamento:
-                                </label>
+                                <label for="data">Data do pagamento:</label>
                                 <input
                                     id="paymentDate"
                                     type="date"
@@ -86,9 +83,13 @@ export class RegisterPayment extends Component {
                                 onChange={(e) => this.setValue(e, "value")}
                             />
                         </div>
-                        <div className="warpInput">             
-                    <input type="submit" value="Cadastrar"onClick={(e) => this._sendStatePayments()}></input>
-                    </div>
+                        <div className="warpInput">
+                            <input
+                                type="submit"
+                                value="Cadastrar"
+                                onClick={(e) => this._sendStatePayments()}
+                            ></input>
+                        </div>
                     </formgroup>
                 </form>
             </div>

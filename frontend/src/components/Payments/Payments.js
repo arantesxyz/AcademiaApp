@@ -3,7 +3,7 @@ import "./Payments.css";
 import React, { Component } from "react";
 
 import { SendRequest } from "../../imports/sendrequest";
-import {RegisterPayment} from '../RegisterPayment/RegisterPayment';
+import { RegisterPayment } from "../RegisterPayment/RegisterPayment";
 
 export class Payments extends Component {
     constructor(props) {
@@ -30,31 +30,30 @@ export class Payments extends Component {
         return (
             <div className="payments">
                 <h1 className="head">Todos os pagamentos</h1>
-                    <table id="payments">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Data pagamento</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.payments.length > 0 &&
-                                this.state.payments.map((item) => (
-                                    <tr key={item._id}>
-                                        <td>{item.name}</td>
-                                        <td>{item.date}</td>
-                                        <td>{item.value}</td>
-                                    </tr>
-                                ))}
-                        </tbody>
-                    </table>
-                    {!this.state.payments.length && (
-                        <p className="loading">Carregando...</p>
-                    )}
-                    <RegisterPayment></RegisterPayment>
-                </div>
-            
+                <table id="payments">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Data pagamento</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.payments.length > 0 &&
+                            this.state.payments.map((item) => (
+                                <tr key={item._id}>
+                                    <td>{item.studentId}</td>
+                                    <td>{item.date}</td>
+                                    <td>{item.value}</td>
+                                </tr>
+                            ))}
+                    </tbody>
+                </table>
+                {!this.state.payments.length && (
+                    <p className="loading">Carregando...</p>
+                )}
+                <RegisterPayment></RegisterPayment>
+            </div>
         );
     }
 }

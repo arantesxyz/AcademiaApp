@@ -21,16 +21,23 @@ route.post("/", async (req, res) => {
     }
 });
 
-route.put("/:id", verifyToken, async (req, res) => {
+route.put("/:id", async (req, res) => {
+    let data = req.body;
+    delete data._id;
+
     try {
-        const response = await new Student().update(req);
+        const response = await new Student().update(
+            { _id: req.params.id },
+            {},
+            data
+        );
         res.status(response.status || 200).json(response);
     } catch (err) {
         res.status(err.status || 500).json(err);
     }
 });
 
-route.get("/:id", verifyToken, async (req, res) => {
+route.get("/:id", async (req, res) => {
     try {
         const response = await new Student().findOne({ _id: req.params.id });
         res.status(response.status || 200).json(response);
@@ -39,7 +46,7 @@ route.get("/:id", verifyToken, async (req, res) => {
     }
 });
 
-route.delete("/:id", verifyToken, async (req, res) => {
+route.delete("/:id", async (req, res) => {
     try {
         const response = await new Student().remove({ _id: req.params.id });
         res.status(response.status || 200).json(response);

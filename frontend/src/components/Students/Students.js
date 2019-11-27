@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { SendRequest } from "../../imports/sendrequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { RegisterStudent} from "../RegisterStudent/RegisterStudent";
+import { RegisterStudent } from "../RegisterStudent/RegisterStudent";
 export class Students extends Component {
     constructor(props) {
         super(props);
@@ -16,28 +16,30 @@ export class Students extends Component {
 
         this._getStateStudents();
     }
-    confirmDelete(deletar,id)
-    {if(deletar)
-        this._deleteStudent(id);
+    confirmDelete(deletar, id) {
+        if (deletar) this._deleteStudent(id);
     }
     async _deleteStudent(id) {
-
-            let response = {};
+        let response = {};
         try {
-            let path = {"/student/" : String + id}
+            let path = { "/students/": String + id };
             response = await SendRequest(path, "DELETE");
-            this.setState({students: this.state.students.filter(students => students !== id)});
+            this.setState({
+                students: this.state.students.filter(
+                    (students) => students !== id
+                )
+            });
         } catch (error) {
             console.log("Error: ", error);
         }
         console.log(response);
-        window.postMessage("Usario" + id +"excluido") ;
+        window.postMessage("Usario" + id + "excluido");
     }
 
     async _getStateStudents() {
         let response = [];
         try {
-            response = await SendRequest("/student/", "GET");
+            response = await SendRequest("/students/", "GET");
         } catch (error) {
             console.log("Error: ", error);
         }
@@ -48,44 +50,58 @@ export class Students extends Component {
         return (
             <div className="students">
                 <h1 className="head">Todos os alunos</h1>
-                    <table id="tableStudents">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Telefone</th>
-                                <th>Instagram</th>
-                                <th>Mais</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody  className='scrool'>
-                            {this.state.students.length > 0 &&
-                                this.state.students.map((item) => (
-                                    <tr key={item._id}>
-                                        <td>{item.name}</td>
-                                        <td>{item.email}</td>
-                                        <td>{item.phone}</td>
-                                        <td>{item.instagram}</td>
-                                        <td>
-                                            <Link to={`/aluno/${item._id}`}>
-                                                Ver mais
-                                            </Link>
-                                        </td>
+                <table id="tableStudents">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Instagram</th>
+                            <th>Mais</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody className="scrool">
+                        {this.state.students.length > 0 &&
+                            this.state.students.map((item) => (
+                                <tr key={item._id}>
+                                    <td>{item.name}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.phone}</td>
+                                    <td>{item.instagram}</td>
+                                    <td>
+                                        <Link to={`/aluno/${item._id}`}>
+                                            Ver mais
+                                        </Link>
+                                    </td>
 
-                                        <td>
-                                            <a href="#" title="Editar">
-                                            <Link to={`/alunos/editar/${item._id}`}>   
+                                    <td>
+                                        <a href="#" title="Editar">
+                                            <Link
+                                                to={`/alunos/editar/${item._id}`}
+                                            >
                                                 <FontAwesomeIcon icon="edit" />{" "}
-                                                </Link>
-                                            </a>
-                                            <a href="#" title="Deletar" onClick={(e) => this.confirmDelete(window.confirm({"Deletar aluno:":String + item._id}),item._id)}>
-                                                <FontAwesomeIcon icon="trash-alt" />
-                                            </a>
-                                        </td>
-                                    </tr>
-                                ))} 
-                                    {/* <tr key= "1">
+                                            </Link>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            title="Deletar"
+                                            onClick={(e) =>
+                                                this.confirmDelete(
+                                                    window.confirm({
+                                                        "Deletar aluno:":
+                                                            String + item._id
+                                                    }),
+                                                    item._id
+                                                )
+                                            }
+                                        >
+                                            <FontAwesomeIcon icon="trash-alt" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            ))}
+                        {/* <tr key= "1">
                                         <td>"nomeTest"</td>
                                         <td>"email"</td>
                                         <td>"phone"</td>
@@ -222,13 +238,13 @@ export class Students extends Component {
                                             </a>
                                         </td>
                                     </tr> */}
-                        </tbody>
-                    </table>
-                     {!this.state.students.length && (
-                        <p className="loading">Carregando...</p>
-                    )} 
-                    <RegisterStudent></RegisterStudent>
-                </div>
+                    </tbody>
+                </table>
+                {!this.state.students.length && (
+                    <p className="loading">Carregando...</p>
+                )}
+                <RegisterStudent></RegisterStudent>
+            </div>
         );
     }
 }

@@ -1,5 +1,5 @@
-const API_URL = "https://painel.academiagolfinhodourado.com.br/api";
-//const API_URL = "http://localhost:3001";
+//const API_URL = "https://painel.academiagolfinhodourado.com.br/api";
+const API_URL = "http://localhost:3001";
 
 export const SendRequest = (path, method, data) => {
     return new Promise((res, err) => {

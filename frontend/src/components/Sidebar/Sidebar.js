@@ -34,7 +34,7 @@ export class Sidebar extends Component {
 
                         <div className={`nav ${this.state.open && "open"}`}>
                             <ul>
-                                <a href="/home">
+                                <a href="/">
                                     <li>
                                         <FontAwesomeIcon icon="home" />
                                         <span> Início</span>

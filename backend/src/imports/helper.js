@@ -10,28 +10,29 @@ module.exports = class Helper {
     };
 
     static verifyToken(req, res, next) {
-        const token = req.header("auth-token");
-        if (!token)
-            res.status(403).json({
-                error: {
-                    message: "Invalid token. Access denied!",
-                    code: 403
-                }
-            });
+        next();
+        // const token = req.header("auth-token");
+        // if (!token)
+        //     res.status(403).json({
+        //         error: {
+        //             message: "Invalid token. Access denied!",
+        //             code: 403
+        //         }
+        //     });
 
-        try {
-            const _id = jwt.verify(token, process.env.JWT_SECRET);
-            req.user = new User().find({ _id });
+        // try {
+        //     const _id = jwt.verify(token, process.env.JWT_SECRET);
+        //     req.user = new User().find({ _id });
 
-            if (!req.user) throw { err: "User does not exist" };
-            next();
-        } catch (err) {
-            res.status(403).json({
-                error: {
-                    message: "Invalid token. Access denied!",
-                    code: 403
-                }
-            });
-        }
+        //     if (!req.user) throw { err: "User does not exist" };
+        //     next();
+        // } catch (err) {
+        //     res.status(403).json({
+        //         error: {
+        //             message: "Invalid token. Access denied!",
+        //             code: 403
+        //         }
+        //     });
+        // }
     }
 };

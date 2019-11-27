@@ -11,8 +11,8 @@ import { Classes } from "../Classes/Classes";
 import { Payments } from "../Payments/Payments";
 import { RegisterPayment } from "../RegisterPayment/RegisterPayment";
 import { BillsToPay } from "../BillsToPay/BillsToPay";
-import {Home} from "../Home/Home";
-import {UpdateStudent} from '../UpdateStudent/UpdateStudent';
+import { Home } from "../Home/Home";
+import { UpdateStudent } from "../UpdateStudent/UpdateStudent";
 
 export class Dashboard extends Component {
     render() {
@@ -44,7 +44,7 @@ export class Dashboard extends Component {
                             path="/pagamentos/adicionar"
                             component={RegisterPayment}
                         />
-                         <Route exact path="/home/" component={Home} />
+                        <Route exact path="/" component={Home} />
                         <Route exacts path="/contas" component={BillsToPay} />
                     </Switch>
                 </Router>

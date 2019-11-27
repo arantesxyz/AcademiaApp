@@ -18,4 +18,8 @@ module.exports = class CRUD {
     async remove(query = {}, options = {}) {
         return await this.model.findOneAndDelete(query, options);
     }
+
+    async update(query, options = {}, data = {}) {
+        return await this.model.findOneAndUpdate(query, data, options);
+    }
 };
