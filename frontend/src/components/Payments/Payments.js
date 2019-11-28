@@ -38,7 +38,7 @@ export class Payments extends Component {
                             <th>Valor</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="scrool">
                         {this.state.payments.length > 0 &&
                             this.state.payments.map((item) => (
                                 <tr key={item._id}>

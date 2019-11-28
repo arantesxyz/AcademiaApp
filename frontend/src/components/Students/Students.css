@@ -17,7 +17,17 @@
     width: 100%;
     
   }
-  
+  .scrool{
+    display: block;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  #tableStudents thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
   #tableStudents td, #tableStudents th {
     border: 1px solid #ddd;
     padding: 8px;

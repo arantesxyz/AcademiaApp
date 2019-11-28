@@ -64,6 +64,12 @@ export class Sidebar extends Component {
                                         <span> Contas abertas</span>
                                     </li>
                                 </a>
+                                <a href="/relatorio">
+                                    <li>
+                                        <FontAwesomeIcon icon="file-invoice-dollar" />
+                                        <span> Relatorio diário</span>
+                                    </li>
+                                </a>
                             </ul>
                         </div>
                     </div>

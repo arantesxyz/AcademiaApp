@@ -41,7 +41,7 @@ export class Classes extends Component {
                             <th>Alunos</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="scrool">
                         {this.state.classes.length > 0 &&
                             this.state.classes.map((item) => (
                                 <tr key={item._id}>

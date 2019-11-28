@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SendRequest } from "../../imports/sendrequest";
+import "./RegisterBillsToPay.css";
 
 export class RegisterBillToPay extends Component {
     state = {
@@ -11,7 +12,7 @@ export class RegisterBillToPay extends Component {
             const { model } = this.state.model;
             let response = [];
             try {
-                response = await SendRequest("/B", "POST", model); //todo route
+                response = await SendRequest("/payments", "POST", model); 
             } catch (error) {
                 console.log("Error: ", error);
             }

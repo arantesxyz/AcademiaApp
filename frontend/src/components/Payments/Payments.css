@@ -8,6 +8,17 @@
     border: 1px solid #ddd;
     padding: 8px;
   }
+  .scrool{
+    display: block;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  #tableStudepaymentsnts thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
   
   #payments tr:nth-child(even){background-color: #f2f2f2;}
   

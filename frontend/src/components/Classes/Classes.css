@@ -23,6 +23,17 @@
     border-top: 5%;
     border-bottom: 5%;
 }
+.scrool{
+    display: block;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  #classesTable thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
 
 #classesTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;

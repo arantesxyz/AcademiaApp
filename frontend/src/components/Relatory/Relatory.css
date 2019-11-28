@@ -1,7 +1,8 @@
-.bills{
+.relatory{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
 }
 .head{
     display: flex;
@@ -10,45 +11,45 @@
     border-bottom: 5%;
 }
 
-#billsTable {
+#relatorys {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
-  
-  #billsTable td, #billsTable th {
-    border: 1px solid #ddd;
-    padding: 8px;
+    
   }
   .scrool{
     display: block;
     max-height: 200px;
     overflow-y: scroll;
   }
-  #billsTable thead,
+  #relatorys thead,
 tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
+  #relatorys td, #relatorys th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
   
-  #billsTable tr:nth-child(even){background-color: #f2f2f2;}
+  #relatorys tr:nth-child(even){background-color: #f2f2f2;}
   
-  #billsTable tr:hover {background-color: #ddd;}
+  #relatorys tr:hover {background-color: #ddd;}
   
-  #billsTable th {
+  #relatorys th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color:#295080;
     color: white;
   }
-  #billsTable td .icon{
+  #relatorys td .icon{
       display: flex;
       justify-content: center;
   }
   .loading{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

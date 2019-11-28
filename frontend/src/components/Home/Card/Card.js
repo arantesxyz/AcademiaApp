@@ -10,11 +10,11 @@ export class Card extends Component {
 
     render() {
         return (
-        <div class="card">
+        <div class="card" href={this.props.path}>
             <div class="container">
         <h1 id="subject"><b>{this.props.subject}</b></h1>
         <hr></hr>
-        <a href={this.props.path}>
+        <a >
         <div id="descriptionCard">{this.props.description}</div> 
         </a>
         

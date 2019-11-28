@@ -13,6 +13,7 @@ import { RegisterPayment } from "../RegisterPayment/RegisterPayment";
 import { BillsToPay } from "../BillsToPay/BillsToPay";
 import { Home } from "../Home/Home";
 import { UpdateStudent } from "../UpdateStudent/UpdateStudent";
+import {Relatory} from "../Relatory/Relatory";
 
 export class Dashboard extends Component {
     render() {
@@ -46,6 +47,7 @@ export class Dashboard extends Component {
                         />
                         <Route exact path="/" component={Home} />
                         <Route exacts path="/contas" component={BillsToPay} />
+                        <Route exacts path="/relatorio" component={Relatory} />
                     </Switch>
                 </Router>
             </div>
