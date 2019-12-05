@@ -5,7 +5,7 @@ const cors = require("cors");
 
 // Mongo connection
 try {
-    mongoose.connect(process.env.MONGO_URL, {
+    mongoose.connect("mongodb://tis:tisSecret@eu.arantes.xyz:27001/academiaapp", {
         useNewUrlParser: true
     });
     console.log("Connected to DB");
@@ -31,6 +31,6 @@ const paymentRoute = require("./modules/payment/payment.routes");
 app.use("/payments", paymentRoute);
 
 // Start server
-app.listen(process.env.PORT, () =>
-    console.log(`Server running on port ${process.env.PORT}`)
+app.listen("3001", () =>
+    console.log(`Server running on port 3001`)
 );
