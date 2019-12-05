@@ -1,10 +1,10 @@
-#payments {
+.payments {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
   }
   
-  #tableStudepaymentsnts td, #payments th {
+  #paymentstable td, .payments th {
     border: 1px solid #ddd;
     padding: 8px;
   }
@@ -13,18 +13,18 @@
     max-height: 200px;
     overflow-y: scroll;
   }
-  #tableStudepaymentsnts thead,
+  #paymentstable thead,
 tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
   
-  #payments tr:nth-child(even){background-color: #f2f2f2;}
+  #paymentstable tr:nth-child(even){background-color: #f2f2f2;}
   
-  #payments tr:hover {background-color: #ddd;}
+  #paymentstable tr:hover {background-color: #ddd;}
   
-  #payments th {
+  #paymentstable th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;

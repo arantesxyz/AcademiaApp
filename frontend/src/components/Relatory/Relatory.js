@@ -26,14 +26,14 @@ export class Relatory extends Component {
         } catch (error) {
             console.log("Error: ", error);
         }
-        let date = new Date().getDate(); 
+       /*  date = new Date(); 
         date.setHours(0,0,0,0);
 
-        let tomorrowDate = new Date().getDate(); 
+        let tomorrowDate = new Date(); 
         tomorrowDate.setDate(date.getDate() + 1);
         tomorrowDate.setHours(0,0,0,0);
 
-        response.filter((item) => item.date >= date && item.date <tomorrowDate);
+        response.filter((item) => item.date >= date && item.date <tomorrowDate); */
         this.setState({ BillsToPay: response });
     }
 

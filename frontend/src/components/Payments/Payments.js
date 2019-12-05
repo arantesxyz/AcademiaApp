@@ -30,7 +30,7 @@ export class Payments extends Component {
         return (
             <div className="payments">
                 <h1 className="head">Todos os pagamentos</h1>
-                <table id="payments">
+                <table id="paymentstable">
                     <thead>
                         <tr>
                             <th>Nome</th>

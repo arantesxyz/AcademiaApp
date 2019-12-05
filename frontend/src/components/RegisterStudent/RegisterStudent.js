@@ -8,7 +8,6 @@ export class RegisterStudent extends Component {
     };
 
     async _sendStateStudent() {
-        if (this.validate()) {
             const { model } = this.state.model;
             let response = [];
             try {
@@ -18,8 +17,6 @@ export class RegisterStudent extends Component {
             }
             console.log(response);
             window.postMessage("Usario" + response._id + "criado");
-        }
-        console.log("Error: algum campo vazio");
     }
     validate() {
         const { validation } = this.state.model;
